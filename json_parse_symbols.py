@@ -11,21 +11,23 @@ BASE_URL = 'https://api.binance.com'
 # Get the keys from files
 try:
     with open('API_SECRET.txt') as secret:
-        API_SECRET = secret.read()
+        API_SECRET = str(secret.read())
 except FileNotFoundError:
     print("Error: Secret file not found, must be named API_SECRET.txt")
     sys.exit(1)
 try:
     with open('API_KEY.txt') as key:
-        API_KEY = key.read()
+        API_KEY = str(key.read())
 except FileNotFoundError:
     print("Error: Key file not found, must be named API_KEY.txt")
     sys.exit(2)
 
+print(f"API KEY: {API_KEY}")
+print(f"API SECRET: {API_SECRET}")
 
-client = Client(config.API_KEY, config.API_SECRET)
+client = Client(API_KEY, API_SECRET)
 
-print(client.get_asset_balance(asset='BTC'))
+print(client.get_asset_balance(asset='EUR'))
 
 URL = "https://api.binance.com/api/v3/ticker/price"
 
