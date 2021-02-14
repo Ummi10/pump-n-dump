@@ -2,6 +2,7 @@ import json
 import urllib.request
 from binance.client import Client
 import config
+import sys
 
 # TODO: change to API request : https://api.binance.com/api/v3/ticker/price
 
@@ -13,13 +14,13 @@ try:
         API_SECRET = secret.read()
 except FileNotFoundError:
     print("Error: Secret file not found, must be named API_SECRET.txt")
-    exit(1)
+    sys.exit(1)
 try:
     with open('API_KEY.txt') as key:
         API_KEY = key.read()
 except FileNotFoundError:
     print("Error: Key file not found, must be named API_KEY.txt")
-    exit(2)
+    sys.exit(2)
 
 
 client = Client(config.API_KEY, config.API_SECRET)
