@@ -22,9 +22,6 @@ except FileNotFoundError:
     print("Error: Key file not found, must be named API_KEY.txt")
     sys.exit(2)
 
-print(f"API KEY: {API_KEY}")
-print(f"API SECRET: {API_SECRET}")
-
 client = Client(API_KEY, API_SECRET)
 
 print(client.get_asset_balance(asset='EUR'))
