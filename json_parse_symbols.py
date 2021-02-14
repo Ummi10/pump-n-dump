@@ -7,6 +7,21 @@ import config
 
 BASE_URL = 'https://api.binance.com'
 
+# Get the keys from files
+try:
+    with open('API_SECRET.txt') as secret:
+        API_SECRET = secret.read()
+except FileNotFoundError:
+    print("Error: Secret file not found, must be named API_SECRET.txt")
+    exit(1)
+try:
+    with open('API_KEY.txt') as key:
+        API_KEY = key.read()
+except FileNotFoundError:
+    print("Error: Key file not found, must be named API_KEY.txt")
+    exit(2)
+
+
 client = Client(config.API_KEY, config.API_SECRET)
 
 print(client.get_asset_balance(asset='BTC'))
