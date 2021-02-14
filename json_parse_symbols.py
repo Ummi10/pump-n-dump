@@ -1,6 +1,15 @@
 import json
 import urllib.request
+from binance.client import Client
+import config
+
 # TODO: change to API request : https://api.binance.com/api/v3/ticker/price
+
+BASE_URL = 'https://api.binance.com'
+
+client = Client(config.API_KEY, config.API_SECRET)
+
+print(client.get_asset_balance(asset='BTC'))
 
 URL = "https://api.binance.com/api/v3/ticker/price"
 
