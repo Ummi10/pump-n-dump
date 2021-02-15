@@ -10,13 +10,13 @@ def get_pairs(json_data):
 def print_markets(trading_pairs):
     print("AVAILABLE MARKETS: ")
     for market in trading_pairs:
-        print(market)
+        print(market[:-3])
 
 
 def get_market(trading_pairs):
     while(True):
         chosen_market = ""
-        input_trading = input("Input market name: ")
+        input_trading = input("Input symbol: ")
 
         for symbol in trading_pairs:
             chosen_market = ""

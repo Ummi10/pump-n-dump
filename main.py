@@ -5,6 +5,7 @@ import json
 from binance.client import Client
 
 BASE_URL = 'https://api.binance.com'
+ASSET = 'EUR'
 
 
 def getkeys():
@@ -29,7 +30,8 @@ if __name__ == '__main__':
 
     client = Client(API_KEY, API_SECRET)
 
-    print(client.get_asset_balance(asset='EUR'))
+    balance = client.get_asset_balance(asset=ASSET)
+    print(f"Current balance: {balance['free']} {ASSET}")
 
     URL = "https://api.binance.com/api/v3/ticker/price"
 
@@ -37,7 +39,8 @@ if __name__ == '__main__':
     json_data = json.loads(response.read())
     trading_pairs = parse_symbols.get_pairs(json_data)
 
-    parse_symbols.print_markets(trading_pairs)
+    # parse_symbols.print_markets(trading_pairs)
     parse_symbols.get_market(trading_pairs)
+
     print("Executing trade logic...")
     sys.exit(0)
