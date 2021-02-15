@@ -1,7 +1,6 @@
 import json
 import urllib.request
 from binance.client import Client
-import config
 import sys
 
 # TODO: change to API request : https://api.binance.com/api/v3/ticker/price
